@@ -1,0 +1,20 @@
+2025-11-08 18:17:05,171 - INFO - Creating Vendor Summary Table...
+2025-11-08 18:18:35,358 - INFO -    VendorNumber  ... FreightCost
+0          1128  ...    68601.68
+1          4425  ...   144929.24
+2         17035  ...   123780.22
+3          3960  ...   257032.07
+4          3960  ...   257032.07
+
+[5 rows x 14 columns]
+2025-11-08 18:18:35,429 - INFO - Cleaning Data...
+2025-11-08 18:18:35,446 - INFO -    VendorNumber  ... SalestoPurchaseRatio
+0          1128  ...             1.338647
+1          4425  ...             1.266830
+2         17035  ...             1.327594
+3          3960  ...             1.372493
+4          3960  ...             1.396897
+
+[5 rows x 18 columns]
+2025-11-08 18:18:35,475 - INFO - Ingesting data...
+2025-11-08 18:18:35,572 - INFO - --Completed--

@@ -1,42 +1,42 @@
 #THIS CODE IS OK FOR NORMAL-SIZED FILES, crashes for huge datasets
-# import pandas as pd
-# import os
-# import sqlalchemy as sal
-# import logging
-# import time
+import pandas as pd
+import os
+import sqlalchemy as sal
+import logging
+import time
 
-# logging.basicConfig(
-#     filename = 'logs/ingestion_db.log',
-#     level = logging.DEBUG,
-#     format="%(asctime)s - %(levelname)s - %(message)s",
-#     filemode='a'
-# )
+logging.basicConfig(
+    filename = 'logs/ingestion_db.log',
+    level = logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    filemode='a'
+)
 
-# engine = sal.create_engine('sqlite:///vendor_perf_project.db')
+engine = sal.create_engine('sqlite:///vendor_perf_project.db')
 
-# def ingest_db(df, table_name, engine):
-#     '''This function will ingest the df into database table'''
-#     df.to_sql(table_name, con=engine, if_exists = 'replace', index=False)
+def ingest_db(df, table_name, engine):
+    '''This function will ingest the df into database table'''
+    df.to_sql(table_name, con=engine, if_exists = 'replace', index=False)
 
-# def load_raw_data():
-#     '''This function will load the CSVs as dataframe and ingest in db'''
-#     start = time.time()
-#     for file in os.listdir('data'):
-#         if '.csv' in file:
-#             df =pd.read_csv('data/'+file)
-#             logging.info(f'Ingesting {file} in db')
-#             ingest_db(df, file[:-4], engine)
-#     end = time.time()
-#     total_time = (end - start)/60
-#     logging.info('--------------Ingestion Complete--------------')
-#     logging.info(f'\nTotal Time Taken : {total_time} minutes')
+def load_raw_data():
+    '''This function will load the CSVs as dataframe and ingest in db'''
+    start = time.time()
+    for file in os.listdir('data'):
+        if '.csv' in file:
+            df =pd.read_csv('data/'+file)
+            logging.info(f'Ingesting {file} in db')
+            ingest_db(df, file[:-4], engine)
+    end = time.time()
+    total_time = (end - start)/60
+    logging.info('--------------Ingestion Complete--------------')
+    logging.info(f'\nTotal Time Taken : {total_time} minutes')
 
 
 # if __name__ =='__main__':
 #     load_raw_data()
 
 
-#PROCESSES HUGE DATASETS
+#PROCESSES HUGE DATASETS ------------------------------------------
 import pandas as pd
 import os
 import sqlalchemy as sal
